@@ -5,11 +5,73 @@
 <html>
 <head>
 <title>Article Search</title>
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css"
+	media="screen, projection">
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css"
+	media="print">
+<link rel="stylesheet"
+	href="css/blueprint/plugins/fancy-type/screen.css" type="text/css"
+	media="screen, projection">
+<style type="text/css">
+table, th, td {
+	border: 1px solid black;
+}
+
+.block {
+	width: 470px;
+	display: block;
+}
+
+.center {
+	text-align: center;
+}
+
+label {
+	display: inline-block;
+	width: 130px;
+	text-align: right;
+}
+</style>
 </head>
 <body>
-	<jsp:include page="/index.jsp" />
-	<div class="container" style="padding: 0px 80px;">
-		<div class="span-20">
+	<div class="container" style="padding: 50px 0px 20px;">
+		<div class="span-7">
+			<form action="search.html" method="post">
+				<div class="block">
+					<label>Search query term:</label> <input type="text" name="q"
+						value="${sessionScope.params.get('q')}" />
+				</div>
+				<div class="block">
+					<label>Filtered search query:</label> <input type="text" name="fq"
+						placeholder="Lucene syntax"
+						value="${sessionScope.params.get('fq')}" />
+				</div>
+				<div class="block">
+					<label>Begin Date:</label> <input type="text" name="begin_date"
+						placeholder="YYYYMMDD"
+						value="${sessionScope.params.get('begin_date')}" />
+				</div>
+				<div class="block">
+					<label>End Date:</label> <input type="text" name="end_date"
+						placeholder="YYYYMMDD"
+						value="${sessionScope.params.get('end_date')}" />
+				</div>
+				<div class="block">
+					<label>Sort:</label> <select name="sort">
+						<option value="newest">Newest</option>
+						<option value="oldest">Oldest</option>
+					</select>
+				</div>
+				<div class="block">
+					<label>Page:</label> <input type="text" name="page"
+						value="${sessionScope.params.get('page')}" />
+				</div>
+				<div class="block center">
+					<input type="submit" value="Search">
+				</div>
+			</form>
+		</div>
+		<div class="span-16">
 			<c:if test="${requestScope.articles!=null}">
 				<ul>
 					<c:forEach items="${requestScope.articles.getResponse().getDocs()}"

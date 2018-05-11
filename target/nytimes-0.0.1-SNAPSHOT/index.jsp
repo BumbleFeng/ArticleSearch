@@ -36,8 +36,8 @@ label {
 </style>
 </head>
 <body>
-	<div class="container" style="padding: 50px 80px 20px;">
-		<div class="span-20">
+	<div class="container" style="padding: 50px 0px 20px;">
+		<div class="span-7">
 			<form action="search.html" method="post">
 				<div class="block">
 					<label>Search query term:</label> <input type="text" name="q"
