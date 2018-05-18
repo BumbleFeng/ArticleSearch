@@ -18,7 +18,7 @@ public class ArticlesDAO {
 		Statement stmt = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/nytimes", "root", "123456");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/nytimes", "root", "12345678");
 			stmt = connection.createStatement();
 			ArrayList<Docs> docs = articles.getResponse().getDocs();
 			for (Docs d : docs) {
