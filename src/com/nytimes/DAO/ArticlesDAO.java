@@ -18,7 +18,7 @@ public class ArticlesDAO {
 		Statement stmt = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/nytimes", "root", "12345678");
+			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:50711/localdb", "azure", "6#vWHD_$");
 			stmt = connection.createStatement();
 			ArrayList<Docs> docs = articles.getResponse().getDocs();
 			for (Docs d : docs) {
@@ -28,7 +28,7 @@ public class ArticlesDAO {
 				if (d.getBrief() != null) {
 					brief = d.getBrief().replaceAll("'", "''");
 				}
-				String query = "INSERT INTO `nytimes`.`articles` (`headline`, `web_url`, `snippet`, `abstract`, `pub_date`, `source`, `subsection_name`, `document_type`, `type_of_material`, `word_count`, `score`) VALUES ('"
+				String query = "INSERT INTO `localdb`.`articles` (`headline`, `web_url`, `snippet`, `abstract`, `pub_date`, `source`, `subsection_name`, `document_type`, `type_of_material`, `word_count`, `score`) VALUES ('"
 						+ headline + "', '" + d.getWeb_url() + "', '" + snippet + "', '" + brief + "', '"
 						+ d.getPub_date() + "', '" + d.getSource() + "', '" + d.getSubsection_name() + "', '"
 						+ d.getDocument_type() + "', '" + d.getType_of_material() + "', '" + d.getWord_count() + "', '"

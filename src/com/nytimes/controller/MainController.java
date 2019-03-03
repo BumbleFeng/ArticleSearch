@@ -81,7 +81,7 @@ public class MainController {
 		nvps.add(param);
 		params.put("page", page);
 
-		param = new BasicNameValuePair("api-key", "7c521812d0954c43b5cacd3443ea1ec5");
+		param = new BasicNameValuePair("api-key", "urmfpagVIGLQH8Sg3iqYP6lfE3ImmjGB");
 		nvps.add(param);
 
 		getArticles();
@@ -112,7 +112,7 @@ public class MainController {
 			param = new BasicNameValuePair(key, params.get(key));
 			nvps.add(param);
 		}
-		param = new BasicNameValuePair("api-key", "7c521812d0954c43b5cacd3443ea1ec5");
+		param = new BasicNameValuePair("api-key", "urmfpagVIGLQH8Sg3iqYP6lfE3ImmjGB");
 		nvps.add(param);
 		getArticles();
 		session.setAttribute("params", params);
